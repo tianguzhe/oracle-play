@@ -52,7 +52,7 @@ export const VideoWrap = (props: {
   }, [playerRef])
 
   return (
-    <div className="w-[960px]">
+    <div className="max-w-sm">
       <div ref={videoRef} />
     </div>
   )

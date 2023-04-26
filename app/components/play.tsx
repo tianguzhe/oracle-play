@@ -54,9 +54,9 @@ const PlayComponent = () => {
 
   return (
     <>
-      <div className="mb-4 w-[960px]">
+      <div className="mb-4 max-w-sm">
         <input
-          className="box-border min-w-[90%] appearance-none py-2 pl-2 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
+          className="box-border min-w-[80%] appearance-none py-2 pl-2 text-sm leading-6 text-slate-900 placeholder-slate-400 shadow-sm ring-1 ring-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white"
           type="text"
           aria-label="请输入流媒体地址"
           placeholder="请输入流媒体地址"
@@ -64,9 +64,8 @@ const PlayComponent = () => {
           onChange={(e) => setInputValue(e.target.value)}
         />
 
-        {/* <input className="h-full  border-2 text-xl"></input> */}
         <button
-          className="h-[44px] min-w-[10%] bg-gray-300 text-gray-700 shadow hover:bg-gray-500 hover:text-white"
+          className="h-[44px] min-w-[20%] bg-gray-300 text-gray-700 shadow hover:bg-gray-500 hover:text-white"
           onClick={changeSrc}
         >
           立即播放
@@ -75,7 +74,7 @@ const PlayComponent = () => {
       {Object.keys(option).indexOf("sources") != -1 ? (
         <VideoWrap options={option} onReady={handlePlayerReady} />
       ) : (
-        <div className="h-[540px] w-[960px] bg-gray-300 dark:bg-white" />
+        <div className="aspect-video h-auto max-w-sm bg-gray-300 dark:bg-white" />
       )}
     </>
   )
