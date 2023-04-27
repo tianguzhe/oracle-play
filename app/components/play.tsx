@@ -7,15 +7,17 @@ import Player from "video.js/dist/types/player"
 const PlayComponent = () => {
   const playerRef = useRef<Player>()
 
-  const [inputValue, setInputValue] = useState<string>(
-    "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8",
-  )
+  const [inputValue, setInputValue] = useState<string>("")
 
   const [option, setOption] = useState<any>({
     autoplay: true,
     controls: true,
     responsive: true,
     fluid: true,
+    sources: {
+      src: "https://sf9-dycdn-tos.pstatp.com/obj/tos-cn-i-8gu37r9deh/4b33493c98364d898208861bc299f651?filename=1.mp4",
+      type: "video/mp4",
+    },
   })
 
   const fotmatType = (url: string) => {
@@ -71,10 +73,8 @@ const PlayComponent = () => {
           立即播放
         </button>
       </div>
-      {Object.keys(option).indexOf("sources") != -1 ? (
+      {Object.keys(option).indexOf("sources") != -1 && (
         <VideoWrap options={option} onReady={handlePlayerReady} />
-      ) : (
-        <div className="aspect-video h-auto max-w-sm bg-gray-300 dark:bg-white md:max-w-2xl lg:max-w-4xl xl:max-w-6xl" />
       )}
     </>
   )
