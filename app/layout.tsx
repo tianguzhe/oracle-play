@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import NavBar from "./nav"
 import { Providers } from "./providers"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         </Providers>
         <Analytics />
       </body>
+      <Script src="/analy.js" />
     </html>
   )
 }
