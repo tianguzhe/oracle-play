@@ -32,7 +32,11 @@ export default async function ListPage() {
   return (
     <div className="flex flex-wrap justify-between md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       {data.data.map((item, index) => (
-        <Link href={`/play/${item.ID}`} key={index} className="relative mb-8">
+        <Link
+          href={`/play/${item.ID}`}
+          key={index}
+          className="relative mb-8 rounded-lg"
+        >
           <Image
             src={item.movie_cover}
             alt={item.movie_name}
@@ -41,7 +45,7 @@ export default async function ListPage() {
             height={500}
             priority
           />
-          <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-t from-gray-900">
+          <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-t from-gray-900 hover:from-[#002fa7]">
             <p className="absolute bottom-2 w-full text-center text-lg text-white lg:bottom-5 lg:text-xl">
               {item.movie_name}
             </p>

@@ -33,23 +33,12 @@ const PlayComponent = (params: {
   }
 
   return (
-    <>
-      <div className="relative">
-        <Image
-          src={params.data.movie_cover}
-          alt={params.data.movie_name}
-          className="aspect-[9/13] rounded-lg object-cover lg:aspect-[8/9] lg:w-full"
-          width={700}
-          height={500}
-          priority
-        />
-        <div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-t from-gray-900">
-          <div className="absolute bottom-[-70px] w-full lg:bottom-0">
-            <VideoWrap options={option} />
-          </div>
-        </div>
-      </div>
-    </>
+    <div>
+      <p className="mb-4 text-center text-xl text-black lg:text-3xl">
+        {params.data.movie_name}
+      </p>
+      <VideoWrap options={option} />
+    </div>
   )
 }
 
