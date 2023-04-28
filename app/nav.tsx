@@ -15,7 +15,7 @@ export default function NavBar() {
           priority
         />
         <p className="ml-4 text-center text-xl md:text-2xl lg:text-3xl">
-          每日一片 (俄罗斯方块)
+          每日一片
         </p>
       </Link>
       <ThemeButton />

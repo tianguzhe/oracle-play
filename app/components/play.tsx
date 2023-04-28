@@ -4,21 +4,14 @@ import { useRef, useState } from "react"
 import VideoWrap from "./videowrap"
 import Player from "video.js/dist/types/player"
 
-const PlayComponent = () => {
+type Props = {
+  url: string
+}
+
+const PlayComponent = (params: Props) => {
   const playerRef = useRef<Player>()
 
   const [inputValue, setInputValue] = useState<string>("")
-
-  const [option, setOption] = useState<any>({
-    autoplay: true,
-    controls: true,
-    responsive: true,
-    fluid: true,
-    sources: {
-      src: "https://sf9-dycdn-tos.pstatp.com/obj/tos-cn-i-8gu37r9deh/4b33493c98364d898208861bc299f651?filename=1.mp4",
-      type: "video/mp4",
-    },
-  })
 
   const fotmatType = (url: string) => {
     if (url.endsWith("mp4")) {
@@ -33,6 +26,14 @@ const PlayComponent = () => {
       }
     }
   }
+
+  const [option, setOption] = useState<any>({
+    autoplay: true,
+    controls: true,
+    responsive: true,
+    fluid: true,
+    sources: fotmatType(params.url),
+  })
 
   const handlePlayerReady = (player: any) => {
     playerRef.current = player
