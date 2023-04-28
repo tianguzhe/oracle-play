@@ -1,14 +1,10 @@
 "use client"
 
 import { useRef, useState } from "react"
-import VideoWrap from "./videowrap"
+import VideoWrap from "@/components/videowrap"
 import Player from "video.js/dist/types/player"
 
-type Props = {
-  url: string
-}
-
-const PlayComponent = (params: Props) => {
+const Playing = () => {
   const playerRef = useRef<Player>()
 
   const [inputValue, setInputValue] = useState<string>("")
@@ -32,7 +28,6 @@ const PlayComponent = (params: Props) => {
     controls: true,
     responsive: true,
     fluid: true,
-    sources: fotmatType(params.url),
   })
 
   const handlePlayerReady = (player: any) => {
@@ -74,11 +69,13 @@ const PlayComponent = (params: Props) => {
           立即播放
         </button>
       </div>
-      {Object.keys(option).indexOf("sources") != -1 && (
+      {Object.keys(option).indexOf("sources") != -1 ? (
         <VideoWrap options={option} onReady={handlePlayerReady} />
+      ) : (
+        <div className="aspect-video h-auto max-w-sm bg-gray-300 dark:bg-white md:max-w-2xl lg:max-w-4xl xl:max-w-6xl" />
       )}
     </>
   )
 }
 
-export default PlayComponent
+export default Playing

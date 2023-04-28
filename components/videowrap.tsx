@@ -9,7 +9,7 @@ import "./index.css"
 
 export const VideoWrap = (props: {
   options: any
-  onReady: (p: Player) => void
+  onReady?: (p: Player) => void
 }) => {
   const videoRef = useRef<any>(null)
   const playerRef = useRef<any>(null)
